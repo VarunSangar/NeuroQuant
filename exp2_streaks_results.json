@@ -1,0 +1,18 @@
+{
+  "experiment": "Experiment 2: Streak-Induced Behavior",
+  "hypothesis": "Post-streak behavior deviates significantly from EV-maximizing strategy. Win streaks induce hot-hand fallacy (increased risk-taking). Loss streaks induce either gambler's fallacy (increased risk-taking) or excessive risk-aversion, depending on agent profile.",
+  "timestamp": "2026-03-22T15:17:48.156099",
+  "metrics": {
+    "risky_rate_control": 0.28,
+    "risky_rate_after_win_streak": 0.3783,
+    "risky_rate_after_loss_streak": 0.3847,
+    "behavioral_shift_win": 0.0983,
+    "behavioral_shift_loss": 0.1047,
+    "ev_deviation_control": 2.9202,
+    "ev_deviation_after_win": 6.2167,
+    "ev_deviation_after_loss": 6.1533,
+    "n_agents": 200,
+    "streak_lengths_tested": "[3, 5, 7]"
+  },
+  "hypothesis_supported": "True"
+}
