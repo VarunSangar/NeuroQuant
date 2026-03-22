@@ -1,23 +1,18 @@
 """
-ui/app.py
-----------
 NeuroQuant Interactive UI — built with Streamlit.
-
-Presents trading scenarios to a live user, tracks decisions in real-time,
-and renders live analytics after each choice. Supports both human play
-and automated agent simulation for comparison.
-
-Run with:
-    streamlit run ui/app.py
 """
 import sys
 import os
 
-# Add the directory containing app.py to the path
-# On Streamlit Cloud this resolves to /mount/src/neuroquant/
+# Ensure repo root is on the path regardless of where Streamlit runs from
 ROOT = os.path.dirname(os.path.abspath(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
+
+# Also add parent in case app.py is inside a subfolder
+PARENT = os.path.dirname(ROOT)
+if PARENT not in sys.path:
+    sys.path.insert(0, PARENT)
 
 import time
 import json
