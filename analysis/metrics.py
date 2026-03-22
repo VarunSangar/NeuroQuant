@@ -94,8 +94,14 @@ def streak_risk_correlation(df: pd.DataFrame) -> float:
     """
     if "current_streak" not in df.columns:
         return float("nan")
+    if len(df) < 2:
+        return float("nan")
+    # Drop rows where streak doesn't vary — pearsonr requires variance in both arrays
     risky_binary = (df["choice"] == "risky").astype(float)
-    corr, _      = stats.pearsonr(df["current_streak"], risky_binary)
+    streaks = df["current_streak"]
+    if streaks.std() == 0 or risky_binary.std() == 0:
+        return float("nan")
+    corr, _ = stats.pearsonr(streaks, risky_binary)
     return float(corr)
 
 
