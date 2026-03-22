@@ -10,11 +10,14 @@ and automated agent simulation for comparison.
 Run with:
     streamlit run ui/app.py
 """
-
 import sys
 import os
-sys.path.insert(0, os.path.dirname(__file__))
-sys.path.insert(0, os.path.abspath("."))
+
+# Add the directory containing app.py to the path
+# On Streamlit Cloud this resolves to /mount/src/neuroquant/
+ROOT = os.path.dirname(os.path.abspath(__file__))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
 
 import time
 import json
